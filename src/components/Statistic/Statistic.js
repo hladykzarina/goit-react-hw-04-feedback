@@ -1,34 +1,45 @@
-import {
-  StatisticContainer,
-  StatisticName,
-  StatisticResult,
-} from './Statistic.styled';
+import PropTypes from 'prop-types';
+import { Votes, VotesItem, Name, Rate } from './Statistic.styled';
 
-const Statistic = ({
-  state: { good, neutral, bad },
-  countTotalFeedback,
-  countPositiveFeedback,
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  totalVotes,
+  positivePercentage,
 }) => {
   return (
-    <StatisticContainer>
-      <StatisticName>
-        Good: <StatisticResult>{good}</StatisticResult>
-      </StatisticName>
-      <StatisticName>
-        Neutral: <StatisticResult>{neutral}</StatisticResult>
-      </StatisticName>
-      <StatisticName>
-        Bad: <StatisticResult>{bad}</StatisticResult>
-      </StatisticName>
-      <StatisticName>
-        Total: <StatisticResult>{countTotalFeedback()}</StatisticResult>
-      </StatisticName>
-      <StatisticName>
-        Positive feedback:{' '}
-        <StatisticResult>{countPositiveFeedback()}</StatisticResult>
-      </StatisticName>
-    </StatisticContainer>
+    <>
+      <Votes>
+        <VotesItem>
+          <Name>Good:</Name>
+          <Rate>{good}</Rate>
+        </VotesItem>
+        <VotesItem>
+          <Name>Neutral:</Name>
+          <Rate>{neutral}</Rate>
+        </VotesItem>
+        <VotesItem>
+          <Name>Bad:</Name>
+          <Rate>{bad}</Rate>
+        </VotesItem>
+        <VotesItem>
+          <Name>Total:</Name>
+          <Rate>{totalVotes}</Rate>
+        </VotesItem>
+        <VotesItem>
+          <Name>Positive feedback:</Name>
+          <Rate>{positivePercentage}%</Rate>
+        </VotesItem>
+      </Votes>
+    </>
   );
 };
 
-export default Statistic;
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  totalVotes: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};

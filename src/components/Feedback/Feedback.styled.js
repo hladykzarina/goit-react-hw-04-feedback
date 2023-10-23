@@ -1,34 +1,44 @@
 import styled from 'styled-components';
 
-export const ButtonContainer = styled.div`
+export const ButtonList = styled.ul`
   display: flex;
-  gap: 20px;
   justify-content: center;
   align-items: center;
+  gap: 30px;
+`;
 
-  :hover:nth-child(1) {
-    background-color: lightblue;
-    border: 2px solid navy;
-    cursor: pointer;
+export const ButtonItem = styled.li`
+  :hover:nth-of-type(1) button {
+    background-color: var(--good);
   }
-  :hover:nth-child(2) {
-    background-color: lightblue;
-    border: 2px solid navy;
-    cursor: pointer;
+
+  :hover:nth-of-type(2) button {
+    background-color: var(--neutral);
   }
-  :hover:nth-child(3) {
-    background-color: lightblue;
-    border: 2px solid navy;
-    cursor: pointer;
+
+  :hover:nth-of-type(3) button {
+    background-color: var(--bad);
   }
 `;
 
-export const ButtonFeedback = styled.button`
-  width: 80px;
-  padding: 12px;
-  font-size: medium;
-  border: 2px solid lightblue;
-  background-color: lightviolet;
-  color: black;
-  border-radius: 6px;
+export const Button = styled.button`
+  padding: 5px 25px;
+
+  font-size: 24px;
+  color: var(--accent);
+
+  background-color: transparent;
+
+  border-radius: 5px;
+  border: 1px solid var(--accent);
+  box-shadow: var(--main-shadow);
+
+  transition: all 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+  cursor: pointer;
+
+  :hover {
+    color: var(--bg);
+    border: 1px solid transparent;
+  }
 `;
